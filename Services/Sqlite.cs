@@ -10,7 +10,11 @@ public class Sqlite
 
     private async Task<SqliteConnection> EstablishConnection()
     {
-        Directory.CreateDirectory(Path.GetDirectoryName(_path)!);
+        string? directory = Path.GetDirectoryName(_path);
+        if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
         SqliteConnection connection = new(_connectUri);
         await connection.OpenAsync();
         return connection;
