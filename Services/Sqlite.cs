@@ -10,10 +10,6 @@ public class Sqlite
     
     private async Task<SqliteConnection> EstablishConnection()
     {
-        Console.WriteLine($"BaseDirectory: {AppContext.BaseDirectory}");
-        Console.WriteLine($"Database path: {_path}");
-        Console.WriteLine($"Directory: {Path.GetDirectoryName(_path)}");
-        Console.WriteLine($"Directory exists: {Directory.Exists(Path.GetDirectoryName(_path)!)}");
         string? directory = Path.GetDirectoryName(_path);
         if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
         {
