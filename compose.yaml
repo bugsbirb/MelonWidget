@@ -1,6 +1,7 @@
 ﻿services:
   melon:
     image: melon
+    user: "1000:1000"
     build:
       context: .
       dockerfile: Dockerfile
