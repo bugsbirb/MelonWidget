@@ -6,7 +6,7 @@
       context: .
       dockerfile: Dockerfile
     volumes:
-      - MelonData:/app/Data
+      - MelonData:/Data
     env_file:
       - .env
     restart: unless-stopped
