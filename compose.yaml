@@ -5,9 +5,11 @@
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./Data:/app/Data
+      - MelonData:/app/Data
     env_file:
       - .env
     restart: unless-stopped
     ports:
       - "${CALLBACK_PORT:-2742}:${CALLBACK_PORT:-2742}"
+volumes:
+  MelonData:
