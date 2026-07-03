@@ -5,7 +5,7 @@ namespace Melon.Services;
 
 public class Sqlite
 {
-    private const string _path = "Data/refresh.db";
+    private static readonly string _path = Path.Combine(AppContext.BaseDirectory, "Data", "refresh.db");
     private readonly string _connectUri = $"Data Source={_path}";
 
     private async Task<SqliteConnection> EstablishConnection()
