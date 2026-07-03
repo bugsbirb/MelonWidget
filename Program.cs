@@ -25,8 +25,7 @@ builder.Services.AddHostedService<Refresh>();
 WebApplication app = builder.Build();
 
 
-app.Urls.Add($"http://localhost:{Env.GetString("CALLBACK_PORT", "2742")}");
-
+app.Urls.Add($"http://{(Env.GetString("ENVIRONMENT") == "Production" ? "0.0.0.0" : "localhost")}:{Env.GetString("CALLBACK_PORT", "2742")}");
 app.UseStaticFiles();
 
 app.MapGet(
